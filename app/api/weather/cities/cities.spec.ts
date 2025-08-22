@@ -3,7 +3,6 @@ import axios from "axios";
 
 jest.mock("axios");
 const axiosMocked = axios.get as jest.Mock;
-const CITIES_CSV = "somecsvurl";
 
 const mockCitiesCSV = `
 city_id,city_name,state_code,country_code,country_full,lat,lon
@@ -13,7 +12,7 @@ city_id,city_name,state_code,country_code,country_full,lat,lon
 describe("getCities", () => {
   it("should get cities JSON", async () => {
     axiosMocked.mockResolvedValue({ status: 200, data: mockCitiesCSV });
-    const cities = await getCitiesJSON(CITIES_CSV);
+    const cities = await getCitiesJSON();
     expect(cities.length).toBe(1);
     expect(cities).toStrictEqual([
       {
@@ -30,6 +29,6 @@ describe("getCities", () => {
 
   it("should throw on fetch error", async () => {
     axiosMocked.mockResolvedValue({ status: 500, data: "" });
-    await expect(getCitiesJSON(CITIES_CSV)).rejects.toThrow("Can't fetch cities csv");
+    await expect(getCitiesJSON()).rejects.toThrow("Can't fetch cities csv");
   });
 });
