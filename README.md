@@ -20,6 +20,8 @@ Backend
 
 - [x] Cities API Endpoint
 - [x] Cities API tests
+- [x] Weather API Endpoint
+- [x] Weather API tests
 
 To do
 
