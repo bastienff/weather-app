@@ -4,6 +4,7 @@ FRONTEND
 
 [] Setup NextJS and MUI
 [] Setup React query
+[] Setup Zustand
 [] Add search bar for cities
 [] Add tab "Rio de Janeiro"
 [] Add tab "Beijing"
