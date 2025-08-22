@@ -12,8 +12,9 @@ Frontend
 - [x] Create next hours forecast component
 - [x] Create next days forecast component
 - [ ] Connect to API
-- [ ] Connect search cities feature with forecats components
-- [ ] Add refresh button
+- [x] Connect search cities feature with forecats components
+- [x] Add refresh button
+- [x] Add footer with latest update date
 
 Backend
 
