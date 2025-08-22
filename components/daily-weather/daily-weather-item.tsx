@@ -1,6 +1,7 @@
 import React from 'react'
 import { DailyWeatherDataType } from '@/components/daily-weather/types'
 import { Box, Typography } from '@mui/material'
+import Image from 'next/image'
 
 export const DailyWeatherItem = ({ dailyWeatherData }: { dailyWeatherData: DailyWeatherDataType }) => {
   const { date, description, highTemp, lowTemp, iconId } = dailyWeatherData;
@@ -15,7 +16,7 @@ export const DailyWeatherItem = ({ dailyWeatherData }: { dailyWeatherData: Daily
       borderBottom="1px solid #e0e0e0"
     >
       <Box display="flex" alignItems="center" alignContent="center" width="100%">
-        <img src={icon} width={50} height={50} alt="weather icon" />
+        <Image src={icon} width={50} height={50} alt="weather icon" />
         <Box
           width="100%"
           textAlign="center"

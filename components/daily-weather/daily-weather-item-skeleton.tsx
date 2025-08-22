@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Skeleton, Typography } from '@mui/material'
+import { Box, Skeleton } from '@mui/material'
 
 export const DailyWeatherItemSkeleton = () => {
   return (

@@ -1,14 +1,7 @@
 import { Search } from '@/components/search';
-import { AppBar, Toolbar, Typography, Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
-import React, { useState } from 'react'
+import { AppBar, Toolbar, Typography } from '@mui/material';
 
 export const Header = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const handleDialogClose = () => {
-    setIsDialogOpen(false);
-  };
-
   return (
     <AppBar position="static">
       <Toolbar>

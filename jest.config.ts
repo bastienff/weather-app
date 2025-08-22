@@ -1,6 +1,6 @@
 import type { Config } from 'jest';
 
-export default async (): Promise<Config> => {
+const jestConfig = async (): Promise<Config> => {
   return {
     testEnvironment: "jsdom",
     setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
@@ -14,3 +14,5 @@ export default async (): Promise<Config> => {
     verbose: true,
   };
 };
+
+export default jestConfig;
