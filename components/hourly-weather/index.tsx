@@ -2,9 +2,12 @@ import React from 'react'
 import { HourlyWeatherItem } from '@/components/hourly-weather/hourly-weather-item';
 import { mapProps } from '@/components/hourly-weather/mapper';
 import { Typography, Stack, Divider, Box } from '@mui/material';
+import { useWeather } from '@/lib/hooks/use-weather';
+import { HourlyWeatherItemSkeleton } from '@/components/hourly-weather/hourly-weather-item-skeleton';
 
 export const HourlyWeather = ({ data }: { data: any[] }) => {
   const mappedProps = mapProps(data);
+  const { isLoading } = useWeather();
 
   return (
     <Box
@@ -22,8 +25,10 @@ export const HourlyWeather = ({ data }: { data: any[] }) => {
         direction="row"
         spacing={2}
         divider={<Divider orientation="vertical" flexItem variant="middle" />}
+        style={{ overflowX: 'auto' }}
       >
-        {mappedProps.map((hourlyWeatherData, index) => (
+        {isLoading && Array(5).fill(null)?.map((_, index) => (<HourlyWeatherItemSkeleton key={index} />))}
+        {!isLoading && mappedProps?.map((hourlyWeatherData, index) => (
           <HourlyWeatherItem key={index} hourlyWeatherData={hourlyWeatherData} />
         ))}
       </Stack>

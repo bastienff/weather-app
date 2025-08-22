@@ -10,15 +10,13 @@ export const Header = () => {
   };
 
   return (
-    <>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" flexGrow={1} noWrap >
-            Simple Weather
-          </Typography>
-          <Search />
-        </Toolbar>
-      </AppBar>
-    </>
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6" flexGrow={1} noWrap >
+          Simple Weather
+        </Typography>
+        <Search />
+      </Toolbar>
+    </AppBar>
   )
 }

@@ -4,19 +4,25 @@ import { HourlyWeather } from '@/components/hourly-weather';
 import { Header } from '@/components/header';
 import { Menu } from '@/components/menu';
 import { Box, Container, Grid } from '@mui/material';
-import { MOCK_DATA } from '@/lib/contants';
+import { useWeather } from '@/lib/hooks/use-weather';
+import { RefetchButton } from '@/components/refetch-button';
+import { Footer } from '@/components/footer';
 
 export default function Home() {
+  const { weatherData } = useWeather();
+
   return (
     <Box>
       <Header />
       <Menu />
       <Container>
+        <RefetchButton />
         <Grid container spacing={4}>
-          <HourlyWeather data={MOCK_DATA.body.hourly} />
-          <DailyWeather data={MOCK_DATA.body.daily} />
+          <HourlyWeather data={weatherData?.hourly} />
+          <DailyWeather data={weatherData?.daily} />
         </Grid>
       </Container>
+      <Footer />
     </Box>
   );
 }
