@@ -1,3 +1,7 @@
+# Weather app
+
+Demo URL: [https://weather-app-nine-lyart-63.vercel.app/](https://weather-app-nine-lyart-63.vercel.app/)
+
 ## Specs
 
 ### Frontend
