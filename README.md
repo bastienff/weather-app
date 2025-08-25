@@ -11,7 +11,7 @@ Frontend
 - [x] Add tab "Los Angeles"
 - [x] Create next hours forecast component
 - [x] Create next days forecast component
-- [ ] Connect to API
+- [x] Connect to API
 - [x] Connect search cities feature with forecats components
 - [x] Add refresh button
 - [x] Add footer with latest update date
@@ -23,6 +23,24 @@ Backend
 - [x] Weather API Endpoint
 - [x] Weather API tests
 
-To do
+Run locally
 
-- [ ] E2E testing
+1. **Install dependencies:**
+
+   ```sh
+   npm install
+   ```
+
+2. **Set environment variables:**
+
+   Create a `.env.local` file in the project root and add any required variables (e.g. API keys).
+
+3. **Start the development server:**
+
+   ```sh
+   npm run dev
+   ```
+
+4. **Open your browser:**
+
+   Visit [http://localhost:3000](http://localhost:3000) to view the app.
