@@ -1,6 +1,6 @@
 ## Specs
 
-Frontend
+### Frontend
 
 - [x] Setup NextJS and MUI
 - [x] Setup React query
@@ -16,14 +16,14 @@ Frontend
 - [x] Add refresh button
 - [x] Add footer with latest update date
 
-Backend
+### Backend
 
 - [x] Cities API Endpoint
 - [x] Cities API tests
 - [x] Weather API Endpoint
 - [x] Weather API tests
 
-Run locally
+### Run locally
 
 1. **Install dependencies:**
 
@@ -44,3 +44,9 @@ Run locally
 4. **Open your browser:**
 
    Visit [http://localhost:3000](http://localhost:3000) to view the app.
+
+### Run Tests
+
+```sh
+npm run test
+```
