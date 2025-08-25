@@ -37,7 +37,7 @@ Demo URL: [https://weather-app-nine-lyart-63.vercel.app/](https://weather-app-ni
 
 2. **Set environment variables:**
 
-   Create a `.env.local` file in the project root and add any required variables (e.g. API keys).
+   Copy `.env.example` to you own `.env` file in the project root and add any required variables (e.g. API keys).
 
 3. **Start the development server:**
 
