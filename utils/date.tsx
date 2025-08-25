@@ -9,8 +9,3 @@ export const getFormattedDate = () => {
     hour12: false,
   }).replace(",", "");
 };
-
-export const saveDateToLocalStorage = () => {
-  const formattedDate = getFormattedDate();
-  localStorage.setItem(WEATHER_DATETIME_UPDATE_KEY, formattedDate);
-};

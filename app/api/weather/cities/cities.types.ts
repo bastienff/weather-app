@@ -1,3 +1,8 @@
+export type GetCitiesDataParams = {
+  lat: string | null;
+  lon: string | null;
+};
+
 export interface CityType {
   city_id: string;
   city_name: string;

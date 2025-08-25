@@ -1,12 +1,15 @@
 import React from 'react'
 import { HourlyWeatherItem } from '@/components/hourly-weather/hourly-weather-item';
-import { mapProps } from '@/components/hourly-weather/mapper';
 import { Typography, Stack, Divider, Box } from '@mui/material';
 import { useWeather } from '@/lib/hooks/use-weather';
 import { HourlyWeatherItemSkeleton } from '@/components/hourly-weather/hourly-weather-item-skeleton';
+import { GetWeatherForecast } from '@/app/api/weather/weather.types';
 
-export const HourlyWeather = ({ data }: { data: any[] }) => {
-  const mappedProps = mapProps(data);
+type HourlyWeatherProps = {
+  data: GetWeatherForecast[];
+};
+
+export const HourlyWeather = ({ data }: HourlyWeatherProps) => {
   const { isLoading } = useWeather();
 
   return (
@@ -28,7 +31,7 @@ export const HourlyWeather = ({ data }: { data: any[] }) => {
         style={{ overflowX: 'auto' }}
       >
         {isLoading && Array(5).fill(null)?.map((_, index) => (<HourlyWeatherItemSkeleton key={index} />))}
-        {!isLoading && mappedProps?.map((hourlyWeatherData, index) => (
+        {!isLoading && data?.map((hourlyWeatherData, index) => (
           <HourlyWeatherItem key={index} hourlyWeatherData={hourlyWeatherData} />
         ))}
       </Stack>

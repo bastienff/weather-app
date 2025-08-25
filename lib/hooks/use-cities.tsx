@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { CityType } from '@/app/api/weather/cities/types';
+import { CityType } from '@/app/api/weather/cities/cities.types';
 
 const fetchCities = async () => {
   const response = await axios.get("/api/weather/cities");

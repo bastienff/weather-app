@@ -1,10 +1,10 @@
-export type MenuCityType = {
-  city_name: string;
-  lat: string;
-  lon: string;
-};
+import { OpenweatherForecastResponse } from "@/app/api/weather/weather.types";
+import { MenuCity } from "@/lib/store.types";
 
-export const MENU_CITIES: MenuCityType[] = [
+export const OPENWEATHER_API_KEY = process.env.OPENWEATHER_API_KEY!;
+export const OPENWEATHER_FORECAST_API = process.env.OPENWEATHER_FORECAST_API!;
+
+export const MENU_CITIES: MenuCity[] = [
   {
     city_name: "Rio de Janeiro",
     lat: "-22.90278",
@@ -22,147 +22,277 @@ export const MENU_CITIES: MenuCityType[] = [
   },
 ];
 
-export const MOCK_DATA = {
-  lat: "-22.90278",
-  lon: "-43.2075",
-  timezone: "America/Sao_Paulo",
-  timezone_offset: -10800,
-  hourly: [
+export const MOCK_DATA: OpenweatherForecastResponse = {
+  "cod": "200",
+  "message": 0,
+  "cnt": 40,
+  "list": [
     {
-      dt: 1728018000,
-      temp: 21.97,
-      feels_like: 22.83,
-      pressure: 1017,
-      humidity: 100,
-      dew_point: 21.97,
-      uvi: 0,
-      clouds: 75,
-      visibility: 10000,
-      wind_speed: 2.4,
-      wind_deg: 179,
-      wind_gust: 3.63,
-      weather: [
-        {
-          id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
-        },
-      ],
-      pop: 1,
-      rain: {
-        "1h": 0.57,
+      "dt": 1756026000,
+      "main": {
+        "temp": 5.29,
+        "feels_like": 3.69,
+        "temp_min": 5.29,
+        "temp_max": 5.29,
+        "pressure": 1029,
+        "sea_level": 1029,
+        "grnd_level": 1011,
+        "humidity": 83,
+        "temp_kf": 0
       },
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04n"
+        }
+      ],
+      "clouds": {
+        "all": 100
+      },
+      "wind": {
+        "speed": 2.02,
+        "deg": 27,
+        "gust": 5.17
+      },
+      "visibility": 10000,
+      "pop": 0,
+      "sys": {
+        "pod": "n"
+      },
+      "dt_txt": "2025-08-24 09:00:00"
     },
     {
-      dt: 1728018000,
-      temp: 21.97,
-      feels_like: 22.83,
-      pressure: 1017,
-      humidity: 100,
-      dew_point: 21.97,
-      uvi: 0,
-      clouds: 75,
-      visibility: 10000,
-      wind_speed: 2.4,
-      wind_deg: 179,
-      wind_gust: 3.63,
-      weather: [
-        {
-          id: 500,
-          main: "Rain",
-          description: "light rain",
-          icon: "10n",
-        },
-      ],
-      pop: 1,
-      rain: {
-        "1h": 0.57,
+      "dt": 1756036800,
+      "main": {
+        "temp": 5.52,
+        "feels_like": 3.87,
+        "temp_min": 5.52,
+        "temp_max": 5.99,
+        "pressure": 1029,
+        "sea_level": 1029,
+        "grnd_level": 1011,
+        "humidity": 81,
+        "temp_kf": -0.47
       },
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04d"
+        }
+      ],
+      "clouds": {
+        "all": 100
+      },
+      "wind": {
+        "speed": 2.11,
+        "deg": 13,
+        "gust": 6.39
+      },
+      "visibility": 10000,
+      "pop": 0,
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2025-08-24 12:00:00"
+    },
+    {
+      "dt": 1756047600,
+      "main": {
+        "temp": 7.02,
+        "feels_like": 5.67,
+        "temp_min": 7.02,
+        "temp_max": 7.89,
+        "pressure": 1029,
+        "sea_level": 1029,
+        "grnd_level": 1011,
+        "humidity": 76,
+        "temp_kf": -0.87
+      },
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04d"
+        }
+      ],
+      "clouds": {
+        "all": 100
+      },
+      "wind": {
+        "speed": 2.05,
+        "deg": 4,
+        "gust": 5.69
+      },
+      "visibility": 10000,
+      "pop": 0,
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2025-08-24 15:00:00"
+    },
+    {
+      "dt": 1756058400,
+      "main": {
+        "temp": 10.3,
+        "feels_like": 9.34,
+        "temp_min": 10.3,
+        "temp_max": 10.3,
+        "pressure": 1027,
+        "sea_level": 1027,
+        "grnd_level": 1010,
+        "humidity": 75,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04d"
+        }
+      ],
+      "clouds": {
+        "all": 100
+      },
+      "wind": {
+        "speed": 1.29,
+        "deg": 355,
+        "gust": 2.34
+      },
+      "visibility": 10000,
+      "pop": 0,
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2025-08-24 18:00:00"
+    },
+    {
+      "dt": 1756069200,
+      "main": {
+        "temp": 11.88,
+        "feels_like": 11.08,
+        "temp_min": 11.88,
+        "temp_max": 11.88,
+        "pressure": 1027,
+        "sea_level": 1027,
+        "grnd_level": 1010,
+        "humidity": 75,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04d"
+        }
+      ],
+      "clouds": {
+        "all": 88
+      },
+      "wind": {
+        "speed": 0.98,
+        "deg": 128,
+        "gust": 0.78
+      },
+      "visibility": 10000,
+      "pop": 0,
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2025-08-24 21:00:00"
+    },
+    {
+      "dt": 1756080000,
+      "main": {
+        "temp": 7.75,
+        "feels_like": 6.93,
+        "temp_min": 7.75,
+        "temp_max": 7.75,
+        "pressure": 1028,
+        "sea_level": 1028,
+        "grnd_level": 1010,
+        "humidity": 90,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "broken clouds",
+          "icon": "04n"
+        }
+      ],
+      "clouds": {
+        "all": 69
+      },
+      "wind": {
+        "speed": 1.64,
+        "deg": 140,
+        "gust": 1.99
+      },
+      "visibility": 10000,
+      "pop": 0,
+      "sys": {
+        "pod": "n"
+      },
+      "dt_txt": "2025-08-25 00:00:00"
+    },
+    {
+      "dt": 1756090800,
+      "main": {
+        "temp": 7.21,
+        "feels_like": 5.96,
+        "temp_min": 7.21,
+        "temp_max": 7.21,
+        "pressure": 1028,
+        "sea_level": 1028,
+        "grnd_level": 1010,
+        "humidity": 94,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "scattered clouds",
+          "icon": "03n"
+        }
+      ],
+      "clouds": {
+        "all": 48
+      },
+      "wind": {
+        "speed": 1.98,
+        "deg": 182,
+        "gust": 2.58
+      },
+      "visibility": 10000,
+      "pop": 0,
+      "sys": {
+        "pod": "n"
+      },
+      "dt_txt": "2025-08-25 03:00:00"
     },
   ],
-  daily: [
-    {
-      dt: 1728050400,
-      sunrise: 1728030598,
-      sunset: 1728075159,
-      moonrise: 1728033660,
-      moonset: 1728081180,
-      moon_phase: 0.06,
-      temp: {
-        day: 20.89,
-        min: 20.15,
-        max: 22.1,
-        night: 20.15,
-        eve: 20.54,
-        morn: 21.53,
-      },
-      feels_like: {
-        day: 21.44,
-        night: 20.52,
-        eve: 21,
-        morn: 22.22,
-      },
-      pressure: 1020,
-      humidity: 92,
-      dew_point: 19.61,
-      wind_speed: 4.33,
-      wind_deg: 134,
-      wind_gust: 7.44,
-      weather: [
-        {
-          id: 501,
-          main: "Rain",
-          description: "moderate rain",
-          icon: "10d",
-        },
-      ],
-      clouds: 100,
-      pop: 1,
-      rain: 14.64,
-      uvi: 1.12,
+  "city": {
+    "id": 3882428,
+    "name": "Los Ángeles",
+    "coord": {
+      "lat": -37.4697,
+      "lon": -72.3537
     },
-    {
-      dt: 1728050400,
-      sunrise: 1728030598,
-      sunset: 1728075159,
-      moonrise: 1728033660,
-      moonset: 1728081180,
-      moon_phase: 0.06,
-      temp: {
-        day: 20.89,
-        min: 20.15,
-        max: 22.1,
-        night: 20.15,
-        eve: 20.54,
-        morn: 21.53,
-      },
-      feels_like: {
-        day: 21.44,
-        night: 20.52,
-        eve: 21,
-        morn: 22.22,
-      },
-      pressure: 1020,
-      humidity: 92,
-      dew_point: 19.61,
-      wind_speed: 4.33,
-      wind_deg: 134,
-      wind_gust: 7.44,
-      weather: [
-        {
-          id: 501,
-          main: "Rain",
-          description: "moderate rain",
-          icon: "10d",
-        },
-      ],
-      clouds: 100,
-      pop: 1,
-      rain: 14.64,
-      uvi: 1.12,
-    },
-  ],
+    "country": "CL",
+    "population": 125430,
+    "timezone": -14400,
+    "sunrise": 1756034508,
+    "sunset": 1756074122
+  }
 };
 
 export const UNKNOWN_ERROR_MESSAGE = "An unknown error occurred";

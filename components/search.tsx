@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Box, Dialog, DialogContent, DialogActions, Button, Autocomplete, TextField } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import { useCities } from '@/lib/hooks/use-cities';
-import { CityType } from '@/app/api/weather/cities/types';
+import { CityType } from '@/app/api/weather/cities/cities.types';
 import { useStore } from '@/lib/store';
 
 export const Search = () => {
@@ -38,7 +38,7 @@ export const Search = () => {
       <Button onClick={() => setIsDialogOpen(true)}>
         <SearchIcon style={{ color: 'white' }} />
       </Button>
-      <Dialog open={isDialogOpen} onClose={handleCloseDialog} fullWidth>
+      <Dialog open={isDialogOpen} onClose={handleCloseDialog} fullWidth disableScrollLock>
         <DialogContent>
           <Autocomplete
             id="SearchCity"

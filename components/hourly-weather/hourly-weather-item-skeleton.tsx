@@ -10,6 +10,7 @@ export const HourlyWeatherItemSkeleton = () => {
       flexDirection="column"
       padding={1}
       width={150}
+      minWidth={150}
     >
       <Skeleton
         animation="wave"

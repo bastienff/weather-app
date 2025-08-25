@@ -10,6 +10,11 @@ export async function GET(request: Request) {
     const weatherData = await getWeatherData({ lat, lon });
     return NextResponse.json(weatherData, { status: 200 });
   } catch (error) {
+    if (error instanceof Error) {
+      const errorMessage = error.message;
+      const errorCause = error.cause;
+      return NextResponse.json({ message: errorMessage, cause: errorCause }, { status: 500 });
+    }
     const errorMessage = error instanceof Error ? error.message : UNKNOWN_ERROR_MESSAGE;
     return NextResponse.json({ message: errorMessage }, { status: 500 });
   }

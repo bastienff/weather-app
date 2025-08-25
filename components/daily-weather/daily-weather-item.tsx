@@ -1,9 +1,13 @@
 import React from 'react'
-import { DailyWeatherDataType } from '@/components/daily-weather/types'
 import { Box, Typography } from '@mui/material'
 import Image from 'next/image'
+import { GetWeatherForecast } from '@/app/api/weather/weather.types'
 
-export const DailyWeatherItem = ({ dailyWeatherData }: { dailyWeatherData: DailyWeatherDataType }) => {
+type DailyWeatherItemProps = {
+  dailyWeatherData: GetWeatherForecast
+}
+
+export const DailyWeatherItem = ({ dailyWeatherData }: DailyWeatherItemProps) => {
   const { date, description, highTemp, lowTemp, iconId } = dailyWeatherData;
   const icon = `https://openweathermap.org/img/wn/${iconId}@2x.png`;
 

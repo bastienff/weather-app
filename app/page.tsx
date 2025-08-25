@@ -10,6 +10,8 @@ import { Footer } from '@/components/footer';
 
 export default function Home() {
   const { weatherData } = useWeather();
+  const dailyData = weatherData?.daily ?? [];
+  const hourlyData = weatherData?.hourly ?? [];
 
   return (
     <Box>
@@ -18,8 +20,8 @@ export default function Home() {
       <Container>
         <RefetchButton />
         <Grid container spacing={4}>
-          <HourlyWeather data={weatherData?.hourly} />
-          <DailyWeather data={weatherData?.daily} />
+          <HourlyWeather data={hourlyData} />
+          <DailyWeather data={dailyData} />
         </Grid>
       </Container>
       <Footer />

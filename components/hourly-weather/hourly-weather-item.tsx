@@ -1,9 +1,13 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 import Image from 'next/image';
-import { DailyWeatherDataType } from '@/components/hourly-weather/types';
+import { GetWeatherForecast } from '@/app/api/weather/weather.types';
 
-export const HourlyWeatherItem = ({ hourlyWeatherData }: { hourlyWeatherData: DailyWeatherDataType }) => {
+type HourlyWeatherItemProps = {
+  hourlyWeatherData: GetWeatherForecast;
+};
+
+export const HourlyWeatherItem = ({ hourlyWeatherData }: HourlyWeatherItemProps) => {
   const { temperature, pop, time, iconId } = hourlyWeatherData;
   const icon = `https://openweathermap.org/img/wn/${iconId}@2x.png`;
   return (
@@ -14,6 +18,7 @@ export const HourlyWeatherItem = ({ hourlyWeatherData }: { hourlyWeatherData: Da
       flexDirection="column"
       padding={1}
       width={150}
+      minWidth={150}
     >
       <Typography>{temperature}°</Typography>
       <Typography color='#3fa5cdff'>{pop}%</Typography>

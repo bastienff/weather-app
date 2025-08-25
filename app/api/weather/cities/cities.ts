@@ -1,6 +1,6 @@
 import axios from "axios";
 import { parse } from "csv-parse/sync";
-import { CityType } from "@/app/api/weather/cities/types";
+import { CityType } from "@/app/api/weather/cities/cities.types";
 
 const CITIES_CSV = process.env.CITIES_CSV!;
 
