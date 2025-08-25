@@ -296,5 +296,6 @@ export const MOCK_DATA: OpenweatherForecastResponse = {
 };
 
 export const UNKNOWN_ERROR_MESSAGE = "An unknown error occurred";
-
 export const WEATHER_DATETIME_UPDATE_KEY = "weather_latest_update";
+export const LISTBOX_HEIGHT = 50;
+export const ITEM_HEIGHT = 60;

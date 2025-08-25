@@ -1,27 +1,37 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Box, Dialog, DialogContent, DialogActions, Button, Autocomplete, TextField } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import { useCities } from '@/lib/hooks/use-cities';
 import { CityType } from '@/app/api/weather/cities/cities.types';
 import { useStore } from '@/lib/store';
+import { Listbox } from '@/components/search/listbox';
 
 export const Search = () => {
   const { setSelectedCity } = useStore();
   const { cities } = useCities();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const options = cities.map((city) => city)
+  const options = useMemo(() => cities.map((city) => city), [cities]);
   const getOptionLabel = (city: string | CityType) => {
     if (typeof city === 'string') return city;
     return `${city.city_name} - ${city.country_code}`;
   };
   const renderInput = (params: any) => <TextField {...params} label="Search city" variant="outlined" fullWidth />;
   const renderOption = (props: any, option: CityType) => (
-    <li {...props} key={option.city_id}>
+    <li
+      {...props}
+      style={{ listStyleType: "none", padding: "20px" }}
+      key={option.city_id}
+    >
       {getOptionLabel(option)}
     </li>
   )
+  const slotProps = {
+    listbox: {
+      component: Listbox,
+    },
+  };
 
-  const handleOnChange = (_event: React.SyntheticEvent, city: string | CityType | null) => {
+  const handleChange = (_event: React.SyntheticEvent, city: string | CityType | null) => {
     if (city && typeof city !== 'string') {
       setSelectedCity(city);
       handleCloseDialog();
@@ -37,16 +47,17 @@ export const Search = () => {
       <Button onClick={() => setIsDialogOpen(true)}>
         <SearchIcon style={{ color: 'white' }} />
       </Button>
-      <Dialog open={isDialogOpen} onClose={handleCloseDialog} fullWidth disableScrollLock>
+      <Dialog open={isDialogOpen} onClose={handleCloseDialog} fullScreen disableScrollLock>
         <DialogContent>
           <Autocomplete
             id="SearchCity"
-            freeSolo
+            disablePortal
             options={options}
             getOptionLabel={getOptionLabel}
             renderInput={renderInput}
             renderOption={renderOption}
-            onChange={handleOnChange}
+            onChange={handleChange}
+            slotProps={slotProps}
           />
         </DialogContent>
         <DialogActions>
