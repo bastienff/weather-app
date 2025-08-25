@@ -5,12 +5,7 @@ import axios from "axios";
 
 export async function getWeatherData({ lat, lon }: GetWeatherDataParams): Promise<GetWeatherDataResponse | null> {
   const weatherUrl = `${OPENWEATHER_FORECAST_API}?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_API_KEY}&units=metric`;
-  let mappedWeatherData = null;
-  try {
-    const response = await axios.get<OpenweatherForecastResponse>(weatherUrl);
-    mappedWeatherData = mapWeatherData(response.data);
-  } catch (error) {
-    throw new Error("Can't fetch weather data", { cause: error });
-  }
-  return mappedWeatherData;
+  const response = await axios.get<OpenweatherForecastResponse>(weatherUrl);
+  if (response.status !== 200) throw new Error("Can't fetch cities csv");
+  return mapWeatherData(response.data);;
 }
