@@ -14,7 +14,6 @@ export const useWeather = () => {
     const response = await axios.get<GetWeatherDataResponse>("/api/weather", {
       params: { lat, lon },
     });
-    console.log("hola")
     const formattedDate = getFormattedDate();
     localStorage.setItem(WEATHER_DATETIME_UPDATE_KEY, formattedDate);
     setWeatherLatestUpdate(formattedDate);

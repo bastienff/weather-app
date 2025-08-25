@@ -23,7 +23,6 @@ export const Search = () => {
 
   const handleOnChange = (_event: React.SyntheticEvent, city: string | CityType | null) => {
     if (city && typeof city !== 'string') {
-      console.log('Selected city:', city);
       setSelectedCity(city);
       handleCloseDialog();
     }
