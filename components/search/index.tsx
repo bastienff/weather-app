@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { Box, Dialog, DialogContent, DialogActions, Button, Autocomplete, TextField } from '@mui/material'
+import { Box, Dialog, DialogContent, Button, Autocomplete, TextField, DialogTitle } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import { useCities } from '@/lib/hooks/use-cities';
 import { CityType } from '@/app/api/weather/cities/cities.types';
@@ -48,6 +48,11 @@ export const Search = () => {
         <SearchIcon style={{ color: 'white' }} />
       </Button>
       <Dialog open={isDialogOpen} onClose={handleCloseDialog} fullScreen disableScrollLock>
+        <DialogTitle display="flex" justifyContent="flex-end">
+          <Button onClick={handleCloseDialog}>
+            Close
+          </Button>
+        </DialogTitle>
         <DialogContent>
           <Autocomplete
             id="SearchCity"
@@ -60,11 +65,6 @@ export const Search = () => {
             slotProps={slotProps}
           />
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseDialog}>
-            Close
-          </Button>
-        </DialogActions>
       </Dialog>
     </Box>
   )
